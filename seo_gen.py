@@ -12,8 +12,8 @@ OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
 HTTP_REFERER = os.getenv("HTTP_REFERER", "https://github.com/yourusername/seo-workflow")
 X_TITLE = os.getenv("X_TITLE", "Real Estate SEO Generator")
 
-GENERATION_MODEL = "liquid/lfm-2.5-1.2b-thinking:free"
-VERIFICATION_MODEL = "google/gemini-2.0-flash-lite-preview-02-05:free" # Using a more specific free gemini model if openrouter/free is vague
+GENERATION_MODEL = "llama-3.3-70b-versatile"
+VERIFICATION_MODEL = "google/gemini-2.0-flash-lite-preview-02-05:free" 
 
 GENERATION_PROMPT_TEMPLATE = """You are a senior SEO content strategist specializing in Indian real estate. Generate a complete SEO-optimized content page for the project name provided.
 
@@ -175,7 +175,7 @@ def call_openrouter(model, prompt, temperature=0.7, max_tokens=4000):
     }
     
     response = requests.post(
-        "https://openrouter.ai/api/v1/",
+        "https://api.groq.com/openai/v1/hat/completions",
         headers=headers,
         data=json.dumps(data)
     )
