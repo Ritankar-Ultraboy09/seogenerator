@@ -1,0 +1,338 @@
+{
+  "name": "SEO Content Generator - Manual Input",
+  "nodes": [
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "project_name",
+              "stringValue": "Prestige Alcazar"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "86bd4362-d715-4032-aeed-968ed6c1bff6",
+      "name": "Input Primary Keyword1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        -7312,
+        736
+      ],
+      "notes": "Enter the primary keyword here before executing"
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "project_name",
+              "stringValue": "={{ $json.project_name }}"
+            },
+            {
+              "name": "timestamp",
+              "stringValue": "={{ $now.format('yyyy-MM-dd_HHmmss') }}"
+            },
+            {
+              "name": "full_prompt",
+              "stringValue": "=You are a senior SEO content strategist specializing in Indian real estate. Generate a complete SEO-optimized content page for the project name provided.\n\nCRITICAL: Before writing, search and verify all facts — pricing, RERA, configurations, possession, distances, phases. Cross-check at least 2 sources. Never invent data. Unverifiable fields → write \"To be confirmed with the developer.\"\n\n## STRUCTURE — FOLLOW EXACTLY, IN ORDER, NO DEVIATIONS\n\n**1. H1 TITLE**\n`[Project Name] — [City] | [Configurations] | [Locality, Address] | Starting [Verified Price]`\nPrimary keyword must appear naturally. Include price only if verified.\n\n**2. ABOUT [PROJECT NAME]**\n3–4 prose paragraphs. No bullet points. Each paragraph must be 4–6 sentences. Total word count for this section: 200–280 words. Write like a knowledgeable friend who has visited — not a brochure. Cover: what the project is and where it sits, scale (land, towers, units) woven naturally into sentences, who it suits and why, design philosophy. Be honest. No unsubstantiated superlatives.\n\n**3. PROJECT AT A GLANCE**\nTwo-column table. Verified rows only.\n\n| Detail | Information |\n|---|---|\n| Developer | |\n| Project Name | |\n| Location | |\n| Total Land Area | |\n| Total Towers | |\n| Floors Per Tower | |\n| Total Units | |\n| Configurations | |\n| Unit Size Range | |\n| Starting Price | |\n| Open Space | |\n| Clubhouses | |\n| Total Amenities | |\n| Project Status | |\n| Possession Date | |\n| RERA Number | |\n\n**4. APARTMENT CONFIGURATIONS & SIZES**\nFour-column table:\n\n| Configuration | Size | Starting Price | Best Suited For |\n\nOne row per available configuration. After the table: 2–3 human paragraphs highlighting the standout configuration and why. Mention Vastu compliance, balcony, ventilation, natural light if verified.\n\n**5. LOCATION — WHY [LOCALITY] MAKES SENSE**\nFour bold-labelled paragraphs in this order:\n\n**Getting to Work** — Metro name + verified distance, key IT parks + distances, major road access.\n**Schools Nearby** — Minimum 3 verified schools with distances.\n**Healthcare** — Minimum 3 verified hospitals/clinics with distances.\n**Shopping & Daily Needs** — Minimum 2 malls/markets + nearest bus stop.\n\nIf known negatives exist (waterlogging, traffic, noise) — state them honestly. This is mandatory, not optional.\n\n**6. AMENITIES**\nOpen with total amenity count and clubhouse details. Then five bold-labelled paragraphs — no bullet points:\n\n**Fitness & Wellness | Recreation & Social | For Children | Green Spaces | Convenience & Infrastructure**\n\nCall out genuinely distinctive features specifically. Explain why they matter to a real resident, not a brochure reader.\n\n**7. CONSTRUCTION QUALITY & SPECIFICATIONS**\nTwo-column table, verified rows only:\n\n| Element | Specification |\n|---|---|\n| Structure | |\n| Living & Bedroom Flooring | |\n| Bathroom & Kitchen Flooring | |\n| Kitchen Counter | |\n| Bathroom Fittings | |\n| Electrical Wiring | |\n| Windows | |\n| Doors | |\n| Lifts | |\n| Power Backup | |\n| Water Supply | |\n\nOne closing paragraph on the developer's quality track record.\n\n**8. WHY THIS IS A GOOD INVESTMENT**\nFour bold-labelled paragraphs:\n\n**Metro / Infrastructure Connectivity | Developer Track Record | Rental Demand | Scale and Self-Sufficiency**\n\nClose with one honest caveat paragraph on investment risk.\n\n**9. PHASES — WHERE THINGS STAND**\n*Skip entirely if single-phase project. If phase information cannot be confirmed through research, write exactly: \"Phase details for [Project Name] are not publicly confirmed at the time of writing — contact the developer directly for launch and possession timelines.\" Do not invent phase details.*\n\nFor each confirmed phase write: name + launch year, current status, possession date, one sentence on what it means for a buyer today. Close with a \"What This Means for You as a Buyer\" paragraph.\n\n**10. FREQUENTLY ASKED QUESTIONS**\n*Research before writing. Do not invent questions.*\n\nSearch these sources before compiling:\nGoogle PAA → Reddit → MagicBricks / 99acres / Housing.com Q&A → NoBroker / CommonFloor forums → Google Maps reviews\n\nRules:\n- 6–10 questions maximum\n- Every question must come from actual research across listed platforms\n- Prioritise questions appearing across multiple sources\n- Must include at least one concern, hesitation or negative real buyers are raising\n- If fewer than 6 questions can be sourced from research, state explicitly: \"Additional FAQs sourced from common buyer patterns in this project category\" and flag which questions those are — do not silently fill gaps\n- Let research dictate topics entirely — do not default to a fixed question list\n\nFormat: **Bold the question.** Answer in 2–5 plain sentences. No sub-bullets inside answers.\n\n**11. GET IN TOUCH**\nTwo-sentence opener. Then:\n\n**Call / WhatsApp:** | **Email:** | **Site Address:** | **Office Hours:**\n\n**12. DISCLAIMER**\n*Copy verbatim:*\n*Disclaimer: All prices, possession dates and project details are based on publicly available information and subject to change. RERA numbers are verifiable on the relevant state RERA portal. Verify all details with the developer or an authorised channel partner before making any purchase decision.*\n\n## GLOBAL SEO RULES\n\n**No repetition across sections.** Each fact, figure or selling point appears in its most relevant section only. Reference briefly elsewhere if needed — never restate in full across multiple sections.\n\n**Primary keyword** — In H1, About opening, at least one subheading, naturally throughout body, in every FAQ answer. No stuffing.\n\n**Supporting keywords** — Weave in organically: [Project] + price / RERA / review / possession date / [city] and [configuration] + apartments in [locality].\n\n**Serve three searcher intents:**\n- Informational → About, Location, Amenities\n- Commercial → Configurations, Investment, Phases\n- Transactional → Get in Touch, price/RERA FAQs\n\n**E-E-A-T** — Always include RERA number. Always use verified distances — never vague claims. State known negatives honestly. Use real numbers, names and dates throughout.\n\n**Tone** — Honest, specific, human. No fluff: luxurious, world-class, magnificent, dream home.\n\n## INPUT\n**Primary Keyword:** ={{ $json.project_name }}\n\nResearch everything. Write in exact section order. No sections skipped or renamed."
+            }
+          ]
+        },
+        "include": "none",
+        "options": {}
+      },
+      "id": "28b8e705-d107-474f-924f-81e15bc5ae47",
+      "name": "Set Variables & Prompt1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        -7120,
+        736
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "HTTP-Referer",
+              "value": "https://github.com/yourusername/seo-workflow"
+            },
+            {
+              "name": "X-Title",
+              "value": "Real Estate SEO Generator"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\"model\":\"liquid/lfm-2.5-1.2b-thinking:free\",\"messages\":[{\"role\":\"user\",\"content\":\"You are a senior SEO content strategist specializing in Indian real estate. Generate a complete SEO-optimized content page for the project name provided.\\n\\nCRITICAL: Before writing, search and verify all facts — pricing, RERA, configurations, possession, distances, phases. Cross-check at least 2 sources. Never invent data. Unverifiable fields → write \\\"To be confirmed with the developer.\\\"\\n\\n## STRUCTURE — FOLLOW EXACTLY, IN ORDER, NO DEVIATIONS\\n\\n**1. H1 TITLE**\\n`[Project Name] — [City] | [Configurations] | [Locality, Address] | Starting [Verified Price]`\\nPrimary keyword must appear naturally. Include price only if verified.\\n\\n**2. ABOUT [PROJECT NAME]**\\n3–4 prose paragraphs. No bullet points. Each paragraph must be 4–6 sentences. Total word count for this section: 200–280 words. Write like a knowledgeable friend who has visited — not a brochure. Cover: what the project is and where it sits, scale (land, towers, units) woven naturally into sentences, who it suits and why, design philosophy. Be honest. No unsubstantiated superlatives.\\n\\n**3. PROJECT AT A GLANCE**\\nTwo-column table. Verified rows only.\\n\\n| Detail | Information |\\n|---|---|\\n| Developer | |\\n| Project Name | |\\n| Location | |\\n| Total Land Area | |\\n| Total Towers | |\\n| Floors Per Tower | |\\n| Total Units | |\\n| Configurations | |\\n| Unit Size Range | |\\n| Starting Price | |\\n| Open Space | |\\n| Clubhouses | |\\n| Total Amenities | |\\n| Project Status | |\\n| Possession Date | |\\n| RERA Number | |\\n\\n**4. APARTMENT CONFIGURATIONS & SIZES**\\nFour-column table:\\n\\n| Configuration | Size | Starting Price | Best Suited For |\\n\\nOne row per available configuration. After the table: 2–3 human paragraphs highlighting the standout configuration and why. Mention Vastu compliance, balcony, ventilation, natural light if verified.\\n\\n**5. LOCATION — WHY [LOCALITY] MAKES SENSE**\\nFour bold-labelled paragraphs in this order:\\n\\n**Getting to Work** — Metro name + verified distance, key IT parks + distances, major road access.\\n**Schools Nearby** — Minimum 3 verified schools with distances.\\n**Healthcare** — Minimum 3 verified hospitals/clinics with distances.\\n**Shopping & Daily Needs** — Minimum 2 malls/markets + nearest bus stop.\\n\\nIf known negatives exist (waterlogging, traffic, noise) — state them honestly. This is mandatory, not optional.\\n\\n**6. AMENITIES**\\nOpen with total amenity count and clubhouse details. Then five bold-labelled paragraphs — no bullet points:\\n\\n**Fitness & Wellness | Recreation & Social | For Children | Green Spaces | Convenience & Infrastructure**\\n\\nCall out genuinely distinctive features specifically. Explain why they matter to a real resident, not a brochure reader.\\n\\n**7. CONSTRUCTION QUALITY & SPECIFICATIONS**\\nTwo-column table, verified rows only:\\n\\n| Element | Specification |\\n|---|---|\\n| Structure | |\\n| Living & Bedroom Flooring | |\\n| Bathroom & Kitchen Flooring | |\\n| Kitchen Counter | |\\n| Bathroom Fittings | |\\n| Electrical Wiring | |\\n| Windows | |\\n| Doors | |\\n| Lifts | |\\n| Power Backup | |\\n| Water Supply | |\\n\\nOne closing paragraph on the developer's quality track record.\\n\\n**8. WHY THIS IS A GOOD INVESTMENT**\\nFour bold-labelled paragraphs:\\n\\n**Metro / Infrastructure Connectivity | Developer Track Record | Rental Demand | Scale and Self-Sufficiency**\\n\\nClose with one honest caveat paragraph on investment risk.\\n\\n**9. PHASES — WHERE THINGS STAND**\\n*Skip entirely if single-phase project. If phase information cannot be confirmed through research, write exactly: \\\"Phase details for [Project Name] are not publicly confirmed at the time of writing — contact the developer directly for launch and possession timelines.\\\" Do not invent phase details.*\\n\\nFor each confirmed phase write: name + launch year, current status, possession date, one sentence on what it means for a buyer today. Close with a \\\"What This Means for You as a Buyer\\\" paragraph.\\n\\n**10. FREQUENTLY ASKED QUESTIONS**\\n*Research before writing. Do not invent questions.*\\n\\nSearch these sources before compiling:\\nGoogle PAA → Reddit → MagicBricks / 99acres / Housing.com Q&A → NoBroker / CommonFloor forums → Google Maps reviews\\n\\nRules:\\n- 6–10 questions maximum\\n- Every question must come from actual research across listed platforms\\n- Prioritise questions appearing across multiple sources\\n- Must include at least one concern, hesitation or negative real buyers are raising\\n- If fewer than 6 questions can be sourced from research, state explicitly: \\\"Additional FAQs sourced from common buyer patterns in this project category\\\" and flag which questions those are — do not silently fill gaps\\n- Let research dictate topics entirely — do not default to a fixed question list\\n\\nFormat: **Bold the question.** Answer in 2–5 plain sentences. No sub-bullets inside answers.\\n\\n**11. GET IN TOUCH**\\nTwo-sentence opener. Then:\\n\\n**Call / WhatsApp:** | **Email:** | **Site Address:** | **Office Hours:**\\n\\n**12. DISCLAIMER**\\n*Copy verbatim:*\\n*Disclaimer: All prices, possession dates and project details are based on publicly available information and subject to change. RERA numbers are verifiable on the relevant state RERA portal. Verify all details with the developer or an authorised channel partner before making any purchase decision.*\\n\\n## GLOBAL SEO RULES\\n\\n**No repetition across sections.** Each fact, figure or selling point appears in its most relevant section only. Reference briefly elsewhere if needed — never restate in full across multiple sections.\\n\\n**Primary keyword** — In H1, About opening, at least one subheading, naturally throughout body, in every FAQ answer. No stuffing.\\n\\n**Supporting keywords** — Weave in organically: [Project] + price / RERA / review / possession date / [city] and [configuration] + apartments in [locality].\\n\\n**Serve three searcher intents:**\\n- Informational → About, Location, Amenities\\n- Commercial → Configurations, Investment, Phases\\n- Transactional → Get in Touch, price/RERA FAQs\\n\\n**E-E-A-T** — Always include RERA number. Always use verified distances — never vague claims. State known negatives honestly. Use real numbers, names and dates throughout.\\n\\n**Tone** — Honest, specific, human. No fluff: luxurious, world-class, magnificent, dream home.\\n\\n## INPUT\\n**Primary Keyword:** = {{ $json.project_name }}\\n\\nResearch everything. Write in exact section order. No sections skipped or renamed.\\n\\n## INPUT\\nPrimary Keyword:{{ $json.project_name }} \\n\\nResearch everything. Write in exact section order. No sections skipped or renamed.\"}],\"max_tokens\":16000,\"temperature\":0.3}",
+        "options": {}
+      },
+      "id": "043e8c81-36b5-4118-960b-5e9f2dad702c",
+      "name": "Generate Content1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -6928,
+        704
+      ],
+      "notes": "For future update, use claude for content generation"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Extract content from API response\nconst response = $input.first().json;\nconst content = response.choices[0].message.content;\nconst projectName = $('Set Variables & Prompt1').first().json.project_name;\nconst timestamp = $('Set Variables & Prompt1').first().json.timestamp;\nconst verifyPrompt = $('verification prompt1').first().json.verifyprompt;\n\n// Clean project name for filename\nconst cleanName = projectName.replace(/[^a-z0-9]/gi, '_').toLowerCase();\n\nreturn {\n  json: {\n    content: content,\n    project_name: projectName,\n    filename: `${cleanName}_${timestamp}.txt`,\n    timestamp: timestamp,\n    verification_prompt: verifyPrompt\n  }\n};"
+      },
+      "id": "743aad0a-fb1b-41dd-9b7c-053a1ba4fbf9",
+      "name": "Extract Content1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -6720,
+        736
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://openrouter.ai/api/v1/chat/completions",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Authorization",
+              "value": "Bearer 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"
+            },
+            {
+              "name": "HTTP-Referer",
+              "value": "https://github.com/yourusername/seo-workflow"
+            },
+            {
+              "name": "X-Title",
+              "value": "Real Estate SEO Generator"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify({ model: 'openrouter/free', messages: [{ role: 'user', content: $json.verification_prompt + '\\\\n\\\\nContent to verify:\\\\n' + $json.content }], max_tokens: 1000, temperature: 0.1 }) }}",
+        "options": {}
+      },
+      "id": "f8720dc2-b7f6-4058-86c3-87ad04b34381",
+      "name": "Verify Structure - Gemini1",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        -6480,
+        720
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Parse verification response\nconst response = $input.first().json;\nconst verificationText = response.choices[0].message.content;\n\n// Extract JSON from response (handle markdown code blocks)\nlet verificationResult;\ntry {\n  const jsonMatch = verificationText.match(/\\{[\\s\\S]*\\}/);\n  verificationResult = JSON.parse(jsonMatch[0]);\n} catch (e) {\n  verificationResult = {\n    verification_passed: false,\n    errors: ['Failed to parse verification response'],\n    missing_sections: [],\n    warnings: []\n  };\n}\n\nconst previousData = $('Extract Content1').first().json;\n\nreturn {\n  json: {\n    ...previousData,\n    verification: verificationResult,\n    passed: verificationResult.verification_passed\n  }\n};"
+      },
+      "id": "cd17fd85-9f92-4de0-ac2b-10b79a9fa270",
+      "name": "Parse Verification1",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        -6144,
+        720
+      ]
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -5808,
+        720
+      ],
+      "id": "02eed370-7743-47f9-93b2-7f5906a4d827",
+      "name": "No Operation, do nothing1"
+    },
+    {
+      "parameters": {
+        "fields": {
+          "values": [
+            {
+              "name": "project_name",
+              "stringValue": "={{ $json.project_name }}"
+            },
+            {
+              "name": "verifyprompt",
+              "stringValue": "=You are a content quality checker. Your job is to analyze the provided content and verify it meets structural requirements.  REQUIRED SECTIONS (must exist in this exact order): 1. H1 title containing the project name 2. \\\"About [Project Name]\\\" section (200-280 words) 3. \\\"Project at a Glance\\\" table with minimum 15 rows 4. \\\"Apartment Configurations & Sizes\\\" table with 4 columns 5. \\\"Location — Why [Locality] Makes Sense\\\" section with 4 bold subsections 6. \\\"Amenities\\\" section with 5 bold subsections 7. \\\"Construction Quality & Specifications\\\" table 8. \\\"Why This Is a Good Investment\\\" section with 4 bold subsections 9. \\\"Phases — Where Things Stand\\\" section (or explicit skip note if single-phase) 10. \\\"Frequently Asked Questions\\\" with minimum 6 questions 11. \\\"Get in Touch\\\" section 12. \\\"Disclaimer\\\" section with exact required text  VERIFICATION CHECKLIST: - All 12 sections present in correct order - Tables are properly formatted with headers - FAQ section has 6-10 questions (each question bolded) - About section word count is between 200-280 words - No placeholder text like \\\"[Project Name]\\\" left unfilled - No Lorem Ipsum or dummy content - Disclaimer text is present and complete  RESPOND ONLY IN THIS JSON FORMAT (nothing else): {   \\\"verification_passed\\\": true,   \\\"missing_sections\\\": [],   \\\"errors\\\": [],   \\\"warnings\\\": [] }  OR if verification fails: {   \\\"verification_passed\\\": false,   \\\"missing_sections\\\": [\\\"Section 3: Project at a Glance table\\\", \\\"Section 10: FAQ\\\"],   \\\"errors\\\": [\\\"About section only 150 words (requires 200-280)\\\", \\\"FAQ has only 4 questions (requires 6-10)\\\"],   \\\"warnings\\\": [\\\"Placeholder text '[Project Name]' found in Section 5\\\"] }  Content to verify: "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "f0db20f8-2a30-4deb-8c57-7cd8dead237f",
+      "name": "verification prompt1",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [
+        -6944,
+        256
+      ],
+      "notes": "Enter the primary keyword here before executing"
+    },
+    {
+      "parameters": {
+        "operation": "html",
+        "binaryPropertyName": "={{ $json.content }}",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.convertToFile",
+      "typeVersion": 1.1,
+      "position": [
+        -5536,
+        720
+      ],
+      "id": "0dcc679e-1c9a-4f97-bcd0-cf8763ada987",
+      "name": "Convert to File1"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -7472,
+        736
+      ],
+      "id": "08210642-803e-4dd1-92f6-4431eac20634",
+      "name": "When clicking ‘Execute workflow’"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Input Primary Keyword1": {
+      "main": [
+        [
+          {
+            "node": "Set Variables & Prompt1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "verification prompt1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Variables & Prompt1": {
+      "main": [
+        [
+          {
+            "node": "Generate Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Content1": {
+      "main": [
+        [
+          {
+            "node": "Extract Content1",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "verification prompt1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Extract Content1": {
+      "main": [
+        [
+          {
+            "node": "Verify Structure - Gemini1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Verify Structure - Gemini1": {
+      "main": [
+        [
+          {
+            "node": "Parse Verification1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Parse Verification1": {
+      "main": [
+        [
+          {
+            "node": "No Operation, do nothing1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "No Operation, do nothing1": {
+      "main": [
+        [
+          {
+            "node": "Convert to File1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "verification prompt1": {
+      "main": [
+        [
+          {
+            "node": "Extract Content1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "versionId": "32d2c3af-9bd1-4bd8-844f-9a521c4619b6",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "f0ef857c1ea7edc0cf39db1e864d7ffadca37208d5ac2e2014ae5cb7ea3dfa40"
+  },
+  "id": "Ai6GJ5LHHD9xNvHh",
+  "tags": [
+    {
+      "updatedAt": "2026-03-09T20:19:08.434Z",
+      "createdAt": "2026-03-09T20:19:08.434Z",
+      "id": "yK4Sz39VI6aaRuL2",
+      "name": "NoBroker"
+    }
+  ]
+}
