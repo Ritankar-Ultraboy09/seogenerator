@@ -1,35 +1,92 @@
 # SEO Content Generator
+# OUTPUTS in .txt as of now. 
 
-This script replicates the n8n workflow for generating SEO-optimized real estate content.
+---
 
-## Setup
+## ✅ Quick Start (Windows)
 
-1.  **Environment:** The project uses the virtual environment in `SEOGen`.
-2.  **API Key:** Ensure your OpenRouter API key is in the `.env` file.
-    ```env
-    OPENROUTER_API_KEY=your_key_here
-    ```
-3.  **Dependencies:** Install requirements (already done if you followed my steps).
-    ```bash
-    .\SEOGen\Scripts\pip.exe install -r requirements.txt
-    ```
+1. **Activate the virtual environment**
 
-## Usage
+   ```powershell
+   .\SEOGen\Scripts\Activate.ps1
+   ```
 
-Run the script using the Python executable in the virtual environment:
+2. **Install dependencies** (if not already installed):
 
-```bash
-.\SEOGen\Scripts\python.exe seo_gen.py
-```
+   ```powershell
+   .\SEOGen\Scripts\pip.exe install -r requirements.txt
+   ```
 
-You will be prompted to enter a Project Name. The script will then:
-1.  **Generate** the SEO content using the specified model (`liquid/lfm-2.5-1.2b-thinking:free`).
-2.  **Verify** the structure using Gemini (`google/gemini-2.0-flash-lite-preview-02-05:free`).
-3.  **Save** the output to the `output/` directory as a text file.
+3. **Create the `.env` file** in the project root (next to `seo_gen.py`) and add your OpenRouter key:
 
-## Configuration
+   ```env
+   GROK_API_KEY=your_openrouter_api_key_here
+   ```
 
-You can change the models or prompts directly in `seo_gen.py`.
+4. **Run the generator script**:
 
-- `GENERATION_MODEL`: Currently set to `liquid/lfm-2.5-1.2b-thinking:free`.
-- `VERIFICATION_MODEL`: Currently set to `google/gemini-2.0-flash-lite-preview-02-05:free`.
+   ```powershell
+   .\SEOGen\Scripts\python.exe seo_gen.py
+   ```
+
+5. Enter a project name when prompted (e.g., `Prestige Alcazar`). The script will generate content, run verification, and save results to `output/`.
+
+---
+
+## 📁 What the code does
+
+- **Generates SEO content** using the model defined in `seo_gen.py` (`GENERATION_MODEL`).
+- **Verifies output structure** using a second model (`VERIFICATION_MODEL`).
+- **Saves results** to `output/` in a timestamped `.txt` file:
+  - Includes the raw generated content
+  - Includes verification results (pass/fail, errors, missing sections)
+
+---
+
+## 🛠️ Configuration (Customize)
+
+### Models
+Update the models in `seo_gen.py` as needed:
+
+- `GENERATION_MODEL` (used for SEO content)
+- `VERIFICATION_MODEL` (used to validate structure)
+
+### Prompts
+Customize these prompt templates (used to steer generation/verification):
+
+- `prompts/generation_prompt.txt`
+- `prompts/verification_prompt.txt`
+
+---
+
+## 📦 Files & Folders (What to keep, what to ignore)
+
+### ✅ Important folders/files
+
+- `seo_gen.py` — main script
+- `prompts/` — prompt templates used by the script
+- `output/` — generated outputs (created automatically if missing)
+- `.env` — contains your API key (should be created manually)
+
+### 🚫 Ignored / not committed
+
+These are already ignored via `.gitignore`, so you don’t need to create them manually:
+
+- `SEOGen/` (virtual environment)
+- `output/` (generated results)
+- `__pycache__/`
+- `.env`
+
+If you plan to use a different folder for output, update the script accordingly.
+
+---
+
+## 🔍 Troubleshooting
+
+- **Missing `GROK_API_KEY`**: Make sure `.env` exists and is loaded. If it’s missing, the script will fail with an API key error.
+- **Prompt files missing**: Ensure `prompts/generation_prompt.txt` and `prompts/verification_prompt.txt` exist.
+- **API errors**: The script raises exceptions with raw API error text, so check the terminal output.
+
+---
+
+If you want, I can also help you add a simple command-line interface (CLI) with arguments for project name, output path, and model overrides.
