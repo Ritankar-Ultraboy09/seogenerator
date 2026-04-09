@@ -28,16 +28,16 @@ def extract_project_specs(text):
         "water_supply": "",
         "parking": ""
     }
-    config_match = re.search(r"Unit Configuration\s*([0-9\s,]+BHK)", text, re.I)
+    config_match = re.search(r"Unit Configuration\s*([0-9]+(?:\.[0-9]+)?(?:\s*,\s*[0-9]+(?:\.[0-9]+)?)*\s*BHK)", text, re.I)
     if config_match:
-        configs = config_match.group(1).replace(' ', '').split(',')
-        project_specs["unit_configuration"] = [c.strip() for c in configs if c.strip()]
+        configs = config_match.group(1).replace(' ', '').replace('BHK', '')
+        project_specs["unit_configuration"] = [c.strip() for c in configs.split(',') if c.strip()]
 
     towers_match = re.search(r"No\.?\s*Of\s*Towers?\s*(\d+)", text, re.I)
     if towers_match:
         project_specs["number_of_towers"] = int(towers_match.group(1))
 
-    units_match = re.search(r"Unit\s*(\d+|NA)", text, re.I)
+    units_match = re.search(r"Units?\s*(\d+|NA)", text, re.I)
     if units_match:
         val = units_match.group(1)
         project_specs["number_of_units"] = None if val == "NA" else int(val)
@@ -90,7 +90,8 @@ def extract_amenities(text):
         "Intercom",
         "Bike Parking",
         "Children's Play Area",
-        "Covered Car Parking"
+        "Covered Car Parking",
+        "Sewage Treatment Plant"
     ]
     amenities = []
     for amenity in possible_amenities:
