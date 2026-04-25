@@ -28,7 +28,7 @@ def extract_project_specs(text):
         "water_supply": "",
         "parking": ""
     }
-    config_match = re.search(r"Unit Configuration\s*([0-9\s,]+BHK)", text, re.I)
+    config_match = re.search(r"Unit Configuration\s*([0-9.,\s]+BHK)", text, re.I)
     if config_match:
         configs = config_match.group(1).replace(' ', '').split(',')
         project_specs["unit_configuration"] = [c.strip() for c in configs if c.strip()]
@@ -37,7 +37,7 @@ def extract_project_specs(text):
     if towers_match:
         project_specs["number_of_towers"] = int(towers_match.group(1))
 
-    units_match = re.search(r"Unit\s*(\d+|NA)", text, re.I)
+    units_match = re.search(r"Units?\s*(\d+|NA)", text, re.I)
     if units_match:
         val = units_match.group(1)
         project_specs["number_of_units"] = None if val == "NA" else int(val)
@@ -55,7 +55,7 @@ def extract_project_specs(text):
     if date_match:
         project_specs["possession_date"] = date_match.group(1)
 
-    water_match = re.search(r"Water\s*Supply\s*[:\-\s]*([A-Za-z][A-Za-z\s]*?)(?=\s+Unit\b|\s+NA\b|\s+No\b|$)", text, re.I)
+    water_match = re.search(r"Water\s*Supply\s*[:\-\s]*([A-Za-z\s]+?)(?:\s+Unit|\s+NA|\s+No|$)", text, re.I)
     if water_match:
         project_specs["water_supply"] = water_match.group(1).strip()
     parking = ""
