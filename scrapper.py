@@ -26,7 +26,8 @@ def extract_project_specs(text):
         "possession_status": "",
         "possession_date": "",
         "water_supply": "",
-        "parking": ""
+        "parking": "",
+        "price_range": None
     }
     config_match = re.search(r"Unit Configuration\s*([0-9.,\s]+BHK)", text, re.I)
     if config_match:
@@ -51,7 +52,7 @@ def extract_project_specs(text):
     if status_match:
         project_specs["possession_status"] = status_match.group(1)
 
-    date_match = re.search(r"Possession\s*Date\s*[:\-\s]*([A-Za-z0-9\s]+)", text, re.I)
+    date_match = re.search(r"Possession\s*in\s*[:\-\s]*([A-Za-z0-9\s]+?)(?:\s+Show|\s+Interest|$)", text, re.I)
     if date_match:
         project_specs["possession_date"] = date_match.group(1)
 
@@ -67,7 +68,11 @@ def extract_project_specs(text):
     elif "visitor parking" in text_lower:
         parking = "Visitor"
     project_specs["parking"] = parking
+    
 
+    price_match = re.search(r"(?:₹|Rs\.?|INR)?\s*[\d.]+\s*(?:Cr(?:ore)?|Lakh|L)\s*(?:to|[-–—])\s*(?:₹|Rs\.?|INR)?\s*[\d.]+\s*(?:Cr(?:ore)?|Lakh|L)?", text, re.I)
+    if price_match:
+        project_specs["price_range"] = price_match.group(0).strip()
     return project_specs
 
 
