@@ -129,8 +129,14 @@ def build_generation_prompt(row, scraped):
             extra.append(f"Number of towers: {proj_specs.get('number_of_towers', '')}")
             extra.append(f"Number of units: {proj_specs.get('number_of_units', '')}")
             extra.append(f"Project area: {proj_specs.get('project_area', '')}")
+            extra.append(f"Possession status: {proj_specs.get('possession_status', '')}")
+            extra.append(f"Possession date: {proj_specs.get('possession_date', '')}")
             extra.append(f"Water supply: {proj_specs.get('water_supply', '')}")
             extra.append(f"Parking: {proj_specs.get('parking', '')}")
+            price_range = proj_specs.get('price_range')
+            if price_range:
+                extra.append(f"Price range: {price_range}")
+            
         amenities = scraped.get('amenities', [])
         if amenities:
             extra.append(f"Amenities: {', '.join(amenities)}")
@@ -153,7 +159,18 @@ def generate_seo_content(row, cache):
     project_name = to_project_title(row)
     print(f"\nGenerating content for: {project_name}")
     url = row.get("No Broker URL", row.get("No Broker Url", row.get("URL", ""))).strip()
-    scraped = get_scraped_details(url, cache) if url else {"nobroker_rera": "", "builder_rera": "", "configurations": "", "summary": "", "project_specs": {}, "amenities": [], "rera_data": {}}
+    default_specs = {
+        "unit_configuration": [],
+        "number_of_towers": None,
+        "number_of_units": None,
+        "project_area": None,
+        "possession_status": "",
+        "possession_date": "",
+        "water_supply": "",
+        "parking": "",
+        "price_range": None
+    }
+    scraped = get_scraped_details(url, cache) if url else {"nobroker_rera": "", "builder_rera": "", "configurations": "", "summary": "", "project_specs": default_specs, "amenities": [], "rera_data": {}}
     prompt = build_generation_prompt(row, scraped)
     return call_openrouter(GENERATION_MODEL, prompt)
 
