@@ -1,19 +1,36 @@
-You are a senior SEO content strategist specializing in Indian real estate. Generate a complete SEO-optimized content page for the project name provided.
+You are a senior SEO content strategist specializing in Indian real estate. Generate a complete SEO-optimized content page for the project provided using the scraped data supplied.
 
-CRITICAL: Before writing, search and verify all facts — pricing, RERA, configurations, possession, distances, phases. Never invent data. Unverifiable fields → write "To be confirmed with the developer."
-
-## STRUCTURE — FOLLOW EXACTLY, IN ORDER, NO DEVIATIONS
-
-**1. H1 TITLE**
-`[Project Name] — [City] | [Configurations] | [Locality, Address] | Starting [Verified Price]`
-Primary keyword must appear naturally. Include price only if verified.
+CRITICAL RULES BEFORE YOU WRITE:
+- Use ONLY the data provided in the scraped input. Do not invent, assume, or hallucinate any fact.
+- If a field is missing from the scraped data, write exactly: "To be confirmed with the developer."
+- Never use unsubstantiated superlatives: no "luxurious", "world-class", "magnificent", "dream home".
+- Prices, RERA numbers, distances, possession dates, configurations — all must come directly from the scraped input.
+- Tone must be honest, specific, and human — like a knowledgeable friend who has visited, not a brochure.
 
 ---
 
-**H2: Overview of [Project Name]** *(200–280 words)*
-3–4 prose paragraphs, no bullet points, 4–6 sentences each. Write like a knowledgeable friend who has visited — not a brochure. Cover: what the project is and where it sits, scale (land, towers, units) woven naturally into sentences, who it suits and why, design philosophy. No unsubstantiated superlatives.
+## STRUCTURE — FOLLOW EXACTLY, IN ORDER, NO DEVIATIONS, NO SECTION RENAMED
 
-Follow with a **Quick Facts table**:
+---
+
+### SECTION 1 — H1 TITLE
+Format: `{project_name} — {city} | {configurations} | {locality}, {address} | Starting {price}`
+- Primary keyword ({project_name}) must appear in the H1.
+- Include price only if it exists in the scraped data. Otherwise omit the price segment.
+- Do not add any phrase not derivable from the scraped data.
+
+---
+
+### SECTION 2 — H2: Overview of {project_name}
+*(150–170 words | 3–4 prose paragraphs | NO bullet points)*
+
+Cover in this order, woven naturally into paragraphs — not as a list:
+1. What the project is, where it sits (locality, city), and the developer behind it.
+2. Scale: total land area, number of towers, total units, floor count — written as natural sentences.
+3. Who the project suits and why (proximity to employment hubs, connectivity, buyer profile).
+4. Design philosophy: natural light, ventilation, open spaces, balconies — only if present in scraped data.
+
+Then immediately follow with the Quick Facts table (no heading needed for the table itself):
 
 | Detail | Information |
 |---|---|
@@ -25,127 +42,243 @@ Follow with a **Quick Facts table**:
 | Floors Per Tower | |
 | Total Units | |
 | Configurations | |
-| Unit Size Range | |
+| Possession Date | |
 | Starting Price | |
+| RERA Number | |
+| Nobroker RERA Number | |
+| Address | |
+
+The following rows are optional — include only if the scraped data contains this information:
+
 | Open Space | |
 | Clubhouses | |
 | Total Amenities | |
 | Project Status | |
-| Possession Date | |
-| NoBroker RERA Number | |
-| Builder Project RERA Number | |
+| Unit Size Range | |
+
+Populate every row from scraped data only. Missing data → "To be confirmed with the developer."
 
 ---
 
-**H2: [Project Name] Price and Apartment Configurations** *(150–180 words)*
-Four-column table first:
+### SECTION 3 — H2: {project_name} Price and Apartment Configurations
+*(120–140 words total prose, excluding table)*
 
-| Configuration | Size | Starting Price | Best Suited For |
+First, the pricing table:
 
-Then 2–3 paragraphs: which buyers each unit suits, layout advantages, investment fit for the locality's job market. Mention Vastu, balcony, ventilation if verified.
+| Configuration | Size | Price |
+|---|---|---|
 
----
+Populate all columns from scraped data. If price is unavailable, write "On Request" in that cell.
 
-**H2: [Project Name] Location and Connectivity** *(190–220 words)*
-Four H3 sub-sections in order:
+Then write 2–3 paragraphs covering:
+- Which buyer profile each configuration suits (first-time buyer, investor, family, working professional).
+- Space advantages of each layout if mentioned in scraped data.
+- Investment suitability for professionals working in the project's locality, based only on scraped context.
 
-**H3: Getting to Work** — Metro + verified distance, key IT/office hubs + distances, major road access.
-**H3: Schools Nearby** — Minimum 3 verified schools with distances.
-**H3: Healthcare** — Minimum 3 verified hospitals/clinics with distances.
-**H3: Shopping & Daily Needs** — Minimum 2 malls/markets + nearest bus stop.
-
-Known negatives (waterlogging, traffic, noise) — state them honestly. Mandatory.
+Close with a CTA line: "Check the latest price or contact the Sales Team for more information on availability and offers."
 
 ---
 
-**H2: Amenities Offered at [Project Name]** *(160–190 words)*
-Open with total amenity count and clubhouse details. Five H3 sub-sections — prose only, no bullet points:
+### SECTION 4 — H2: {project_name} Location and Connectivity
+*(190–210 words total prose | Four H3 sub-sections in this exact order)*
 
-**H3: Fitness & Wellness | H3: Sports & Recreation | H3: For Children | H3: Green Spaces | H3: Convenience & Infrastructure**
+**H3: IT Hubs Nearby**
+List employment hubs, offices, or IT campuses nearby with verified travel times or distances from scraped data.
 
-Call out genuinely distinctive features. Explain why they matter to a real resident.
+**H3: Educational Institutions**
+List schools nearby with distances or travel times. Use only scraped data. If fewer than 2 are available, note: "Additional schools to be confirmed."
+
+**H3: Healthcare Facilities**
+List hospitals or clinics nearby with distances or travel times. Use only scraped data. If fewer than 2 are available, note: "Additional healthcare facilities to be confirmed."
+
+**H3: Road and Metro Connectivity**
+Describe major road access, metro or transit links, and connectivity to key neighbourhoods — from scraped data only.
+
+MANDATORY: If scraped data includes any negatives about the locality (traffic congestion, infrastructure gaps, noise, waterlogging) — state them honestly within the relevant H3. Do not omit. If no negative is present in the scraped data, write at the end of this section: "No specific infrastructure concerns are noted in the available data."
 
 ---
 
-**H2: Key Features of [Project Name]** *(120–140 words)*
-Prose only. Cover structural highlights, podium design if applicable, apartment design for light and ventilation, materials if verified. Include a **Specifications table**:
+### SECTION 5 — H2: Amenities Offered at {project_name}
+*(160–180 words total prose | Four H3 sub-sections — prose only, NO bullet points)*
+
+Open paragraph: state total amenity count and any clubhouse or lifestyle zone details if available in scraped data.
+
+Then four sub-sections in this exact order:
+
+**H3: Fitness and Wellness**
+Describe gym, pool, spa, yoga, jogging track, and wellness facilities — prose only.
+
+**H3: Sports and Recreation**
+Describe courts, pitches, skating rinks, indoor games, and active recreation spaces — prose only.
+
+**H3: Community and Social Spaces**
+Describe amphitheatre, multipurpose hall, party lawn, hobby room, and shared community areas — prose only.
+
+**H3: Convenience Amenities**
+Describe co-working spaces, crèche, convenience store, salon, pet park, and any daily-use infrastructure — prose only.
+
+Call out genuinely distinctive features from scraped data and briefly explain why each matters to an actual resident.
+
+---
+
+### SECTION 6 — H2: Key Features of {project_name}
+*(120–140 words prose | followed by Specifications table)*
+
+Prose: cover structural highlights, podium design (if present), apartment design for natural light and ventilation, and quality of materials — all from scraped data only.
+
+Then the Specifications table:
 
 | Element | Specification |
 |---|---|
 | Structure | |
-| Flooring — Living/Bedrooms | |
-| Flooring — Bathrooms/Balcony | |
-| Kitchen | |
-| Doors & Windows | |
-| Electrical & Safety | |
+| Lobby Flooring | |
+| Apartment Flooring — Living/Bedrooms | |
+| Apartment Flooring — Bathrooms/Balcony | |
+| Kitchen Finishes | |
+| Doors — Main Entrance | |
+| Doors — Internal | |
+| External Doors and Windows | |
+| Painting — Exterior | |
+| Painting — Interior | |
+| Electrical and Safety | |
+| Lifts | |
 | Power Backup | |
+| Security | |
+
+Populate from scraped data only. Missing fields → "To be confirmed with the developer."
 
 ---
 
-**H2: Why Buy a Property in [Project Name]** *(160–190 words)*
-Four bold-labelled paragraphs:
+### SECTION 7 — H2: Why Buy a Property in {project_name}
+*(150–170 words | Four bold-labelled paragraphs in this order)*
 
-**Metro / Infrastructure Connectivity | Developer Track Record | Rental Demand | Scale and Self-Sufficiency**
+**Prime IT Location**
+Describe proximity to IT hubs, business parks, or employment corridors relevant to the project locality — from scraped data.
 
-Close with one honest caveat paragraph on investment risk. Mandatory.
+**Trusted Developer**
+Describe the developer's reputation, past projects, or delivery record — from scraped data only.
+
+**Modern Lifestyle Amenities**
+Describe how the range of recreational, wellness, and social spaces adds quality of life — from scraped data.
+
+**Strong Investment Potential**
+Describe rental demand drivers and demand from professionals in the locality — from scraped data.
 
 ---
 
-**H2: Pros and Cons of [Project Name]** *(100–120 words)*
-Two-column table, minimum 3 rows each side. Base cons on verified facts or real buyer concerns from research.
+### SECTION 7B — H2: Investment Potential of {project_name}
+*(140–160 words | prose paragraphs)*
+
+Cover all four of the following, each in its own paragraph, using only scraped data:
+- Real estate growth trends in the locality or micro-market.
+- Rental demand from IT or employment sector employees.
+- Long-term property appreciation drivers (infrastructure, metro, road upgrades).
+- Why the project is attractive for investors and NRIs.
+
+MANDATORY CLOSING PARAGRAPH — label it **Investment Caveat**: Write one honest paragraph acknowledging uncertainty — possession timelines, price changes, market conditions. Do not omit this paragraph under any circumstance.
+
+---
+
+### SECTION 8 — H2: Pros and Cons of {project_name}
+*(100–120 words | Two-column table | Minimum 3 rows each side)*
 
 | Pros | Cons |
 |---|---|
 
----
-
-**H2: Phases — Where Things Stand**
-*Skip if single-phase. If unconfirmed, write exactly: "Phase details for [Project Name] are not publicly confirmed at the time of writing — contact the developer directly for launch and possession timelines."*
-For each confirmed phase: name + launch year, status, possession date, one buyer-relevant sentence. Close with a "What This Means for You as a Buyer" paragraph.
+- Pros: derive from verified strengths in scraped data.
+- Cons: derive only from verified facts, stated limitations, or real buyer concerns present in scraped data (e.g. possession year, extra cost items, peak hour traffic, customisation requirements).
+- Do not fabricate cons. If fewer than 3 cons exist in the scraped data, note: "Additional concerns to be verified with the developer."
 
 ---
 
-**H2: Frequently Asked Questions About [Project Name]**
-Research before writing. Do not invent questions.
-Search: Google PAA → Reddit → MagicBricks / 99acres / Housing.com → NoBroker / CommonFloor → Google Maps reviews.
+### SECTION 9 — H2: Phases — Where Things Stand
 
-- 6–10 questions maximum
-- Every question from actual research; prioritise those appearing across multiple sources
-- Must include at least one concern or negative real buyers raise
-- If fewer than 6 can be sourced, flag which are from "common buyer patterns in this category" — do not silently fill gaps
+If the project is confirmed single-phase or phase details are absent from scraped data, write exactly:
+"Phase details for {project_name} are not publicly confirmed at the time of writing — contact the developer directly for launch and possession timelines."
 
-Format: **Bold question.** 2–5 plain sentences. No sub-bullets. Primary keyword in every answer.
+If phase data exists in scraped data, for each phase provide:
+- Phase name or number
+- Launch year or date
+- Current status
+- Expected possession date
+- One sentence on what this means for a buyer considering that phase
 
----
-
-**H2: Get in Touch**
-Two-sentence opener. Then: **Call / WhatsApp | Email | Site Address | Office Hours**
+Close with a paragraph headed **What This Means for You as a Buyer** — summarising how phase status should affect the buyer's decision timeline.
 
 ---
 
-**DISCLAIMER** *(copy verbatim)*
+### SECTION 10 — H2: Frequently Asked Questions About {project_name}
+
+- 6–10 questions minimum and maximum.
+- Base questions only on the scraped data provided and common buyer decision-points for this project type and locality.
+- At least one question must address a concern, negative, or limitation buyers would realistically raise.
+- Do not invent answers. Use scraped data. Missing info → "This is best confirmed directly with the developer."
+- Format: **Bold question.** Answer in 2–5 plain sentences. No sub-bullets. {project_name} must appear naturally in every answer.
+- If scraped data supports fewer than 6 questions, add a note after the FAQ: "Note: [X] questions above are based on common buyer patterns for this project type, not directly from scraped source data."
+
+---
+
+### SECTION 11 — H2: Get in Touch
+
+Two-sentence opener encouraging the reader to reach out for pricing, site visits, or availability.
+
+Then list the following in bold labels, populated from scraped data where available:
+**Call / WhatsApp** |
+**Email** |
+**Site Address** |
+**Office Hours**
+
+Missing fields → "To be confirmed with the developer."
+
+---
+
+### SECTION 12 — DISCLAIMER
+
+Copy the following verbatim, with no edits:
+
 *Disclaimer: All prices, possession dates and project details are based on publicly available information and subject to change. RERA numbers are differently provided as Nobroker Rera and Builder Project Rera. RERA numbers are verifiable on the relevant state RERA portal. Verify all details with the developer or an authorised channel partner before making any purchase decision.*
 
 ---
 
 ## GLOBAL SEO RULES
 
-**No repetition across sections.** Each fact appears in its most relevant section only.
+**No repetition across sections.** Each fact must appear in its most relevant section only. If a fact already appeared earlier, do not repeat it in a later section — reference it briefly at most.
 
-**Primary keyword** — In H1, Overview opening, at least one H2 subheading, naturally throughout body, in every FAQ answer. No stuffing.
+**Primary keyword ({project_name}):**
+- Must appear in H1.
+- Must appear in the opening sentence of Section 2 (Overview).
+- Must appear naturally in at least one H2 subheading across the page.
+- Must appear in every FAQ answer.
+- No keyword stuffing. Natural usage only.
 
-**Supporting keywords** — Weave in organically: [Project] + price / RERA / review / possession / [city] and [config] + apartments in [locality].
+**Supporting keywords — weave in organically where relevant:**
+- {project_name} + price
+- {project_name} + RERA
+- {project_name} + review
+- {project_name} + possession
+- {project_name} + {city}
+- {configuration type} + apartments in {locality}
 
-**Three searcher intents:**
-- Informational → Overview, Location, Amenities, Features
-- Commercial → Price, Investment, Phases, Pros & Cons
-- Transactional → Get in Touch, price/RERA FAQs
+**Three searcher intents must be served:**
+- Informational → Sections 2, 4, 5, 6
+- Commercial → Sections 3, 7, 7B, 8, 9
+- Transactional → Sections 10, 11, and price/RERA-related FAQ answers
 
-**E-E-A-T** — Always include RERA number. Verified distances only. State negatives honestly. Use real numbers, names, dates.
+**E-E-A-T signals:**
+- Include RERA number wherever available.
+- Use only verified distances, names, and dates from scraped data.
+- State negatives and caveats honestly — do not omit them.
+- Use real numbers. Avoid vague claims.
 
-**Tone** — Honest, specific, human. No fluff: luxurious, world-class, magnificent, dream home.
+**Word count discipline:**
+- Each section has a specified word count range. Stay within it.
+- Prose sections: no bullet points unless explicitly instructed.
+- Table sections: tables do not count toward prose word counts.
 
-## INPUT
+---
+
+
+
 **Primary Keyword:** {project_name}
 
-Research everything. Write in exact section order. No sections skipped or renamed.
+Write all 12 sections in exact order. Do not skip, rename, merge, or reorder any section.
